@@ -1,0 +1,57 @@
+services:
+
+  jobmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    command: jobmanager
+
+    ports:
+      - "8081:8081"
+
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        rest.address: jobmanager
+
+  taskmanager:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    command: taskmanager
+
+    depends_on:
+      - jobmanager
+
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        taskmanager.numberOfTaskSlots: 2
+
+  job:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    depends_on:
+      - jobmanager
+
+    command:
+      - flink
+      - run
+      - -m
+      - jobmanager:8081
+      - --pyFiles
+      - src.zip
+      - --python
+      - src/pyflink_example/main.py
+
+    environment:
+      - |
+        FLINK_PROPERTIES=
+        jobmanager.rpc.address: jobmanager
+        rest.address: jobmanager

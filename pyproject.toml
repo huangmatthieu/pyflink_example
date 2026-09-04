@@ -6,6 +6,8 @@ requires-python = ">=3.10"
 dependencies = [
     "apache-flink==1.20.3",
     "setuptools<81",
+    "pydantic==2.13.2",
+    "pyhocon==0.3.63"
 ]
 
 [build-system]

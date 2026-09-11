@@ -4,7 +4,6 @@ from pydantic import BaseModel
 
 @dataclass(frozen=True)
 class Alert(BaseModel):
-    transaction_id: str
     user_id: str
     amount: float
     timestamp: int

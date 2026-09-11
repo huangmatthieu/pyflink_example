@@ -33,4 +33,4 @@ RUN zip src.zip src/pyflink_example
 USER flink
 
 # if run inside the container, wihout sending app to standalone cluster
-#CMD ["python", "-m", "pyflink_example.main"]
+CMD ["python", "-m", "pyflink_example.fraud_detection.test"]

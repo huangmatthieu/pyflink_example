@@ -1,5 +1,5 @@
-from pyflink_example.di.container import build_repository
-from pyflink_example.job.user_job import build_job
+from pyflink_example.valid_mail.di.container import build_repository
+from pyflink_example.valid_mail.job.user_job import build_job
 
 if __name__ == "__main__":
     repo = build_repository()

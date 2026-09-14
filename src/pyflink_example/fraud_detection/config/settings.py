@@ -34,12 +34,16 @@ class Config(BaseModel):
     flink: Flink
     kafka: Kafka
 
+@dataclass(frozen=True)
+class App(BaseModel):
+    app: Config
+
 
 class Settings:
     def __init__(self, file_path):
         self.file_path = file_path
 
-    def parse_config(self) -> Config:
+    def parse_config(self) -> App:
         raw_config = ConfigFactory.parse_file(self.file_path)
-        return Config.model_validate(raw_config)
+        return App.model_validate(raw_config)
 

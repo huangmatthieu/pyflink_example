@@ -21,8 +21,15 @@ RUN python3 -m pip install --no-cache-dir --upgrade pip
 
 # PyFlink
 RUN python3 -m pip install --no-cache-dir \
-    apache-flink==1.20.1
+    apache-flink==1.20.5
 
-ENV PYTHON_EXEC=/usr/bin/python3
+ENV PYTHON_EXEC=/usr/bin/python
+
+RUN wget -P /opt/flink/lib/ \
+    https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/3.3.0-1.20/flink-connector-kafka-3.3.0-1.20.jar \
+    && wget -P /opt/flink/lib/ \
+    https://repo1.maven.org/maven2/org/apache/flink/flink-connector-kafka/3.3.0-1.20/flink-connector-kafka-3.3.0-1.20.jar \
+    && wget -P /opt/flink/lib/ \
+    https://repo1.maven.org/maven2/org/apache/kafka/kafka-clients/3.9.1/kafka-clients-3.9.1.jar
 
 USER flink

@@ -1,5 +1,5 @@
 from pyflink.datastream import StreamExecutionEnvironment
-from pyflink_example.services.user_service import UserService
+from pyflink_example.valid_mail.services.user_service import UserService
 from pyflink.common import Configuration
 import sys
 

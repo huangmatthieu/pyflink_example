@@ -1,4 +1,4 @@
-from pyflink_example.models.user import User
+from pyflink_example.valid_mail.models.user import User
 
 
 class KafkaUserRepository:

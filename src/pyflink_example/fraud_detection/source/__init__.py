@@ -1,5 +1,5 @@
-from .kafka_source import KafkaSource
+from .kafka_in import KafkaIn
 
 __all__ = [
-    "KafkaSource"
+    "KafkaIn"
 ]

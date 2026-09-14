@@ -1,4 +1,4 @@
-from pyflink_example.repository.kafka_user_repository import KafkaUserRepository
+from pyflink_example.valid_mail.repository.kafka_user_repository import KafkaUserRepository
 
 
 def build_repository() -> KafkaUserRepository:

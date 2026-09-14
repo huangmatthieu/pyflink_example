@@ -1,5 +1,5 @@
-from pyflink_example.models.user import User
-from pyflink_example.repository.user_repository import UserRepository
+from pyflink_example.valid_mail.models.user import User
+from pyflink_example.valid_mail.repository.user_repository import UserRepository
 import logging
 from typing import Iterable
 from typing import TypedDict

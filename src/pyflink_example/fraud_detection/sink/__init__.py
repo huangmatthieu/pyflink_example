@@ -1,5 +1,5 @@
-from .kafka_sink import KafkaSink
+from .kafka_out import KafkaOut
 
 __all__ = [
-    "KafkaSink"
+    "KafkaOut"
 ]

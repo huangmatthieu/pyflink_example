@@ -1,12 +1,9 @@
 from pyflink.common import SimpleStringSchema
-from pyflink.datastream.connectors.kafka import (
-    KafkaRecordSerializationSchema,
-    KafkaSink,
-)
+from pyflink.datastream.connectors.kafka import KafkaRecordSerializationSchema, KafkaSink
 from pyflink.datastream.connectors.base import DeliveryGuarantee
 
 
-class KafkaSink:
+class KafkaOut:
 
     def __init__(
         self,

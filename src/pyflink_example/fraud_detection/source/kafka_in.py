@@ -1,12 +1,9 @@
 from pyflink.common import SimpleStringSchema, WatermarkStrategy
 from pyflink.datastream import StreamExecutionEnvironment
-from pyflink.datastream.connectors.kafka import (
-    KafkaOffsetsInitializer,
-    KafkaSource,
-)
+from pyflink.datastream.connectors.kafka import KafkaOffsetsInitializer, KafkaSource
 
 
-class KafkaSource:
+class KafkaIn:
 
     def __init__(
         self,

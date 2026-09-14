@@ -1,6 +1,6 @@
-from .settings import (Settings, Config)
+from .settings import (Settings, App)
 
 __all__ = [
     "Settings",
-    "Config"
+    "App"
 ]

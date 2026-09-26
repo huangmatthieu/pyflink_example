@@ -1,4 +1,4 @@
-from unittest import TestCase
+from unittest import TestCase, main
 from pyflink_example.fraud_detection.model import Alert, Transaction
 from pyflink_example.fraud_detection.service import FraudDetector
 
@@ -78,4 +78,4 @@ class FraudDetectorTests(TestCase):
 
 
 if __name__ == "__main__":
-    unittest.main()
+    main()

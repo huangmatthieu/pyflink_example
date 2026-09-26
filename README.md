@@ -43,13 +43,12 @@ instead of **localhost:8081** or **0.0.0.0:8081**
 
 ## Running the Project
 
-### Running the unit tests
+### 0. Running the tests
 
-Run the fraud detector unit tests from the repository root:
+Run the unit and local Flink integration tests from the repository root:
 ```text
-python -m pytest 
+python -m pytest
 ```
-The tests exercise fraud detection behavior with in-memory state and do not require a running Flink or Kafka cluster.
 
 ### 1. Start the Flink Kafka Infrastructure
 

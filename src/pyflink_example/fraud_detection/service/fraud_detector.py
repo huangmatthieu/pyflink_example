@@ -31,18 +31,18 @@ class FraudDetector(KeyedProcessFunction):
 
     def process_element(
             self,
-            transaction: Transaction,
+            value: Transaction,
             ctx: KeyedProcessFunction.Context,
     ):
         previous = self.previous_transaction_state.value()
 
         if previous is not None:
 
-            time_difference = transaction.timestamp - previous["timestamp"]
+            time_difference = value.timestamp - previous["timestamp"]
 
             both_are_large = (
                     previous["amount"] >= self.amount_threshold
-                    and transaction.amount >= self.amount_threshold
+                    and value.amount >= self.amount_threshold
             )
 
             within_time_window = (
@@ -51,15 +51,15 @@ class FraudDetector(KeyedProcessFunction):
 
             if both_are_large and within_time_window:
                 yield Alert(
-                    user_id=transaction.user_id,
-                    amount=transaction.amount,
-                    timestamp=transaction.timestamp,
+                    user_id=value.user_id,
+                    amount=value.amount,
+                    timestamp=value.timestamp,
                     reason=(
                         "Two high-value transactions detected "
                         f"within {self.time_window_ms // 1000} seconds"
                     )
                 )
 
-        self.previous_transaction_state.update(transaction.to_dict())
+        self.previous_transaction_state.update(value.to_dict())
 
 

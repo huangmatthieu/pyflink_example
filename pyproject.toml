@@ -10,6 +10,11 @@ dependencies = [
     "pyhocon==0.3.63"
 ]
 
+[project.optional-dependencies]
+dev = [
+    "pytest",
+]
+
 [build-system]
 requires = ["hatchling"]
 build-backend = "hatchling.build"
@@ -19,3 +24,6 @@ packages = ["src/pyflink_example"]
 
 [tool.mypy]
 ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

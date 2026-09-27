@@ -49,6 +49,10 @@ Run the unit and local Flink integration tests from the repository root:
 ```text
 python -m pytest
 ```
+If sonar is configured, run the tests with coverage and generate the report:
+```text
+pytest --cov=src/pyflink_example --cov-report=term-missing --cov-report=xml:coverage.xml
+```
 
 ### 1. Start the Flink Kafka Infrastructure
 
